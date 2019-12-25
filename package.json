@@ -1,6 +1,6 @@
 {
   "name": "@doubco/log-book",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple logger library for JS.",
   "main": "lib/index.js",
   "commonjs": "lib/index.cjs.js",
@@ -11,7 +11,7 @@
   "private": false,
   "scripts": {
     "setup": "yarn",
-    "publish": "npm publish --access public",
+    "release": "npm publish --access public",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "rollup -c -w",
     "build": "rollup -c",

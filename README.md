@@ -1,4 +1,4 @@
-# Logook 🌎
+# LogBook 📕
 
 ## Install
 
