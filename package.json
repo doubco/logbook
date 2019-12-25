@@ -1,0 +1,45 @@
+{
+  "name": "@doubco/log-book",
+  "version": "1.0.1",
+  "description": "Simple logger library for JS.",
+  "main": "lib/index.js",
+  "commonjs": "lib/index.cjs.js",
+  "module": "lib/index.es.js",
+  "repository": "https://github.com/doubco/log-book.git",
+  "author": "Doub.co <hi@doub.co>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "setup": "yarn",
+    "publish": "npm publish --access public",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "rollup -c -w",
+    "build": "rollup -c",
+    "prepare": "npm run build"
+  },
+  "dependencies": {},
+  "keywords": [
+    "theme",
+    "styled",
+    "components",
+    "react",
+    "helper"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "^7.7.4",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "prettier": "^1.19.1",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-url": "^3.0.1"
+  }
+}
