@@ -1,11 +1,14 @@
 {
   "name": "@doubco/log-book",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple logger library for JS.",
   "main": "lib/index.js",
   "commonjs": "lib/index.cjs.js",
   "module": "lib/index.es.js",
-  "repository": "https://github.com/doubco/log-book.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doubco/log-book.git"
+  },
   "author": "Doub.co <hi@doub.co>",
   "license": "MIT",
   "private": false,
@@ -26,20 +29,27 @@
     "helper"
   ],
   "devDependencies": {
-    "@babel/core": "^7.7.7",
-    "@babel/plugin-proposal-class-properties": "^7.7.4",
-    "@babel/plugin-proposal-object-rest-spread": "^7.7.7",
-    "@babel/preset-env": "^7.7.7",
-    "@babel/preset-react": "^7.7.4",
-    "babel-eslint": "^10.0.3",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.9.5",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
-    "eslint-plugin-import": "^2.19.1",
-    "eslint-plugin-prettier": "^3.1.2",
-    "prettier": "^1.19.1",
-    "rollup-plugin-babel": "^4.3.3",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-prettier": "^3.1.3",
+    "prettier": "^2.0.5",
+    "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.2",
     "rollup-plugin-url": "^3.0.1"
+  },
+  "bugs": {
+    "url": "https://github.com/doubco/log-book/issues"
+  },
+  "homepage": "https://github.com/doubco/log-book#readme",
+  "directories": {
+    "lib": "lib"
   }
 }

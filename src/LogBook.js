@@ -34,53 +34,53 @@ class LogBook {
         color: FGBLACK,
         colorHex: "#ccc",
         bg: BGWHITE,
-        bgHex: "#999"
+        bgHex: "#999",
       },
       warning: {
         color: FGBLACK,
         colorHex: "#000",
         bg: BGYELLOW,
-        bgHex: "#ff0"
+        bgHex: "#ff0",
       },
       error: {
         color: FGWHITE,
         colorHex: "#fff",
         bg: BGRED,
-        bgHex: "#f00"
+        bgHex: "#f00",
       },
       success: {
         color: FGBLACK,
         colorHex: "#fff",
         bg: BGGREEN,
-        bgHex: "#108400"
+        bgHex: "#108400",
       },
       black: {
         color: FGWHITE,
         colorHex: "#fff",
         bg: BGBLACK,
-        bgHex: "#000"
+        bgHex: "#000",
       },
       blue: {
         color: FGWHITE,
         colorHex: "#fff",
         bg: BGBLUE,
-        bgHex: "#00f"
+        bgHex: "#00f",
       },
       cyan: {
         color: FGWHITE,
         colorHex: "#fff",
         bg: BGCYAN,
-        bgHex: "#0ff"
+        bgHex: "#0ff",
       },
       magenta: {
         color: FGWHITE,
         colorHex: "#fff",
         bg: BGMAGENTA,
-        bgHex: "#f0f"
-      }
+        bgHex: "#f0f",
+      },
     };
 
-    Object.keys(this.themes).forEach(theme => {
+    Object.keys(this.themes).forEach((theme) => {
       this[theme] = (key, ...rest) => {
         this.log(key, this.themes[theme], ...rest);
       };
@@ -88,7 +88,7 @@ class LogBook {
     });
 
     this.browser = {};
-    Object.keys(this.themes).forEach(theme => {
+    Object.keys(this.themes).forEach((theme) => {
       this.browser[theme] = (key, ...rest) => {
         this.log(key, { ...this.themes[theme], onlyBrowser: true }, ...rest);
       };
@@ -107,11 +107,13 @@ class LogBook {
           console.log(
             `%c ${key} `,
             `background: ${bgHex}; color: ${colorHex}`,
-            ...rest
+            ...rest,
           );
         } else {
           if (!onlyBrowser) {
-            console.log(" ");
+            if (!this.options.dontUseSeparator) {
+              console.log(" ");
+            }
             console.log(`${bg + color}`, key, RESET, ...rest);
           }
         }
