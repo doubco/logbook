@@ -1,13 +1,13 @@
 {
-  "name": "@doubco/log-book",
-  "version": "1.0.3",
+  "name": "@doubco/logbook",
+  "version": "1.0.5",
   "description": "Simple logger library for JS.",
   "main": "lib/index.js",
   "commonjs": "lib/index.cjs.js",
   "module": "lib/index.es.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/doubco/log-book.git"
+    "url": "git+https://github.com/doubco/logbook.git"
   },
   "author": "Doub.co <hi@doub.co>",
   "license": "MIT",
