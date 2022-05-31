@@ -24,10 +24,67 @@ const BGMAGENTA = "\x1b[45m";
 const BGCYAN = "\x1b[46m";
 const BGWHITE = "\x1b[47m";
 
-class LogBook {
-  constructor(props = {}) {
-    this.options = props.options;
-    this.hook = props.hook;
+export type TLogOptions = {
+  color?: string;
+  colorHex?: string;
+  bg?: string;
+  bgHex?: string;
+  onlyBrowser?: boolean;
+};
+export type TLogBookOptions = {
+  browser?: boolean;
+  visible?: boolean;
+  colorize?: boolean;
+  dontUseSeparator?: boolean;
+};
+
+export type TLogBookHook = (key: string, options?: TLogOptions) => void;
+
+export type TLogBookConfig = {
+  options?: TLogBookOptions;
+  hook?: TLogBookHook;
+};
+
+export interface ILogThemes {
+  info: TLogOptions;
+  warning: TLogOptions;
+  error: TLogOptions;
+  success: TLogOptions;
+  black: TLogOptions;
+  blue: TLogOptions;
+  cyan: TLogOptions;
+  magenta: TLogOptions;
+}
+
+export type TLogger = (key: string, ...rest: any) => void;
+
+export class LogBook {
+  hook: TLogBookHook;
+  options: TLogBookOptions;
+  themes: ILogThemes;
+  browser: {
+    info: TLogger;
+    warning: TLogger;
+    error: TLogger;
+    success: TLogger;
+    black: TLogger;
+    blue: TLogger;
+    cyan: TLogger;
+    magenta: TLogger;
+  };
+
+  info: TLogger;
+  warning: TLogger;
+  error: TLogger;
+  success: TLogger;
+  black: TLogger;
+  blue: TLogger;
+  cyan: TLogger;
+  magenta: TLogger;
+
+  constructor(config?: TLogBookConfig) {
+    this.options = config?.options || {};
+    this.hook = config?.hook;
 
     this.themes = {
       info: {
@@ -80,22 +137,31 @@ class LogBook {
       },
     };
 
-    Object.keys(this.themes).forEach((theme) => {
-      this[theme] = (key, ...rest) => {
+    Object.keys(this.themes).forEach((theme: keyof ILogThemes) => {
+      this[theme as keyof ILogThemes] = (key, ...rest) => {
         this.log(key, this.themes[theme], ...rest);
       };
       this[theme] = this[theme].bind(this);
     });
 
-    this.browser = {};
-    Object.keys(this.themes).forEach((theme) => {
+    this.browser = {
+      info: () => null,
+      warning: () => null,
+      error: () => null,
+      success: () => null,
+      black: () => null,
+      blue: () => null,
+      cyan: () => null,
+      magenta: () => null,
+    };
+    Object.keys(this.themes).forEach((theme: keyof ILogThemes) => {
       this.browser[theme] = (key, ...rest) => {
         this.log(key, { ...this.themes[theme], onlyBrowser: true }, ...rest);
       };
     });
   }
 
-  log(key, options = {}, ...rest) {
+  log(key: string, options: TLogOptions = {}, ...rest: any) {
     const { browser, visible, colorize = true } = this.options;
     const { color, colorHex, bg, bgHex, onlyBrowser } = options;
 
@@ -125,7 +191,7 @@ class LogBook {
     }
   }
 
-  group(...args) {
+  group(...args: any[]) {
     if (this.options.visible) {
       console.groupCollapsed(...args);
     }

@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "declaration": true,
+    "declarationDir": "./lib",
+    "emitDecoratorMetadata": true,
+
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react",
+    "module": "es6",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "preserveConstEnums": true,
+    "target": "es6",
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src/index.ts"]
+}
