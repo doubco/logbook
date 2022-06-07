@@ -1,6 +1,6 @@
 {
   "name": "@doubco/logbook",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Simple logger library for JS.",
   "main": "lib/index.js",
   "commonjs": "lib/index.cjs.js",
